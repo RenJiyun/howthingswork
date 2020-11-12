@@ -21,7 +21,7 @@ public class HowspringsecurityworksApplication {
         return "hello";
     }
 
-    @GetMapping("world")
+    @GetMapping("/world")
     public String world() {
         return "world";
     }
