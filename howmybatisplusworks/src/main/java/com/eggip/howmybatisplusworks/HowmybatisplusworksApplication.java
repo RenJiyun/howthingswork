@@ -1,13 +1,12 @@
 package com.eggip.howmybatisplusworks;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.eggip.howmybatisplusworks.mapper.UserMapper;
 import com.eggip.howmybatisplusworks.model.User;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -22,12 +21,13 @@ public class HowmybatisplusworksApplication {
     @Autowired
     private UserMapper userMapper;
 
-    @PostMapping("test")
+    @GetMapping("test")
     public User test() {
-        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(User::getId, 1);
-//        return userMapper.selectOne(wrapper);
-        return userMapper.getUserById(1L);
+        User user = new User();
+        user.setId(1000L);
+        user.setName("ren=====");
+        userMapper.save(user);
+        return user;
     }
 
 }

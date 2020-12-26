@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <button id="button1">button1</button>
+</body>
+<script>
+    $("#button1").click(function () {
+        $.get("http://localhost:8081/sayHello?service=http://localhost:8082/sayHello?name=ren", function (data, status) {
+            console.log(data)
+        })
+    })
+</script>
+</html>

@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper extends BaseMapper<User> {
     User getUserById(@Param("id") long id);
+
+    void save(@Param("user") User user);
 }

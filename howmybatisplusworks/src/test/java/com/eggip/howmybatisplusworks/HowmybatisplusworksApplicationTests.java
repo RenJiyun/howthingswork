@@ -20,4 +20,9 @@ class HowmybatisplusworksApplicationTests {
         userList.forEach(System.out::println);
     }
 
+    @Test
+    public void test1() {
+        User user = new User();
+    }
+
 }
